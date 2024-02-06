@@ -56,7 +56,9 @@ ROOT_URLCONF = 'fotoblog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR.joinpath('templates'), # <--- ajoutez cette ligne
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,18 +88,32 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
+# AUTH_PASSWORD_VALIDATORS = [
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+#     },
+# ]
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 8,
+        }
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'authentication.validators.ContainsLetterValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'authentication.validators.ContainsDigitValidator',
     },
 ]
 
@@ -123,3 +139,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'authentication.User'
+
+LOGIN_URL = 'login' # page pour redirection si l'utilisateur souhaite accéder à une page à laquelle il doit être connecté
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = LOGIN_URL
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR.joinpath('media/')
