@@ -1,20 +1,46 @@
+{% load static %}
+
 <html lang="fr">
     <head>
         <title>FotoBlog</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}" />
     </head>
     <body>
-        <h1>FotoBlog</h1>
-        {% block content %}{% endblock content %}
+        <div id='page'>
+
+            <div id="sideBar">
+
+                <h1>FotoBlog</h1>
+
+                {%  if user.is_authenticated %}
+                    <p>Salut {{ user }} ! </p>
+
+                    <div class="profile_pic_contain">
+                        {% if user.profile_photo %}
+                            <img src="{{ user.profile_photo.url }}">
+                        {% else %}
+                            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
+                        {% endif %}
+                    </div>
+
+                    <p><a href="{% url 'home' %}">  Accueil </a></p>
+                    <p><a href="{% url 'photo_upload' %}">     Télécharger une photo      </a></p>
+                    <p><a href="{% url 'profile_pic_change' %}"> Changer la photo de profil </a></p>
+                    <p><a href="{% url 'password_change' %}">    Changer le mot de passe    </a></p>
+                    
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="deconnect">Se déconnecter</button>
+                    </form>
+                                            
+                {% endif %}
         
-        {%  if user.is_authenticated %}
-            <p>Vous êtes connecté en tant que {{ user }}. 
-            
-            <form action="{% url 'logout' %}" method="post">
-                {% csrf_token %}
-                <button type="submit">Se déconnecter</button>
-            </form>
-                
-            <p>Voulez-vous <a href="{% url 'password_change' %}">changer votre mot de passe ?</a></p>
-        {% endif %}
+            </div>
+
+            <div id="main">
+                {% block content %}{% endblock content %}
+            </div>
+
+        </div>
     </body>
 </html>

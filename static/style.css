@@ -1,0 +1,100 @@
+/* variables */
+:root {
+    --minh: 900px;
+  }
+
+body {
+    background-color: white;
+    color: black;
+    margin: 0;
+}
+
+#page {
+    background-color: lightgrey;
+    width: 80%;
+    min-height: var(--minh);
+    height: auto;
+    margin: auto;
+    padding: 0;
+    display: flex;
+    align-items: flex-start;
+    border: 2px black double;
+    margin-bottom: 10px;
+}
+
+#sideBar {
+    margin-left: 0;
+    min-height: var(--minh);
+    width: 30%;
+    background-color: rgba(11, 55, 61, 0.9);
+    color: white;
+    padding: 20px;
+}
+
+#main {
+    background-color: white;
+    width: 100%;
+    min-height: var(--minh);
+    padding: 20px;
+}
+
+/* -------- In SideBar ------------ */
+.deconnect {
+    border: none;
+    background-color: transparent;
+    color: inherit; /* Utilise la couleur de texte héritée */
+    cursor: pointer; /* Change le curseur en pointeur au survol */
+    padding: 0; /* Supprime le rembourrage */
+    font-size: inherit; /* Utilise la taille de police héritée */
+    font-family: inherit; /* Utilise la police héritée */
+    text-decoration: none; /* Ajoute une soulignement comme un lien */
+    color: white;
+    display: inline;
+}
+
+
+.profile_pic_contain {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    border-radius:150px;
+    overflow: hidden;
+
+}
+.profile_pic_contain img {
+    width: 100%;
+    height: auto;
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+}
+.profile_pic_contain:hover img {
+    transform: scale(1.5);
+}
+
+
+/* -------- PHOTOS GALLERY ------------ */
+.gallery {
+    display: flex;
+}
+.picture_cap {
+    width: 400px;
+    margin: auto;
+    text-align: center;
+}
+.picture_cap p {
+    margin: auto;
+}
+.picture_cap img {
+    width: 50%;
+    height: auto;
+    margin: auto;
+    text-align: center;
+    border-radius: 7px;
+}
+
+/* -------- OTHERS ------------ */
+
+#sideBar a {
+    text-decoration: none;
+    color: white;
+}

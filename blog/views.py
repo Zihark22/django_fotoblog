@@ -21,3 +21,6 @@ def photo_upload(request):
             photo.save()
             return redirect('home')
     return render(request, 'blog/photo_upload.html', context={'form': form})
+
+
+
