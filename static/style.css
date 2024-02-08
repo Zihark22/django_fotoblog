@@ -52,6 +52,7 @@ body, html {
     color: white;
     display: inline;
     margin: 10px;
+    margin-top: 50px;
 }
 .deconnect:hover {
     text-decoration: underline;
@@ -85,7 +86,7 @@ body, html {
     color: orangered;
 }
 
-/* -------- PHOTOS GALLERY ------------ */
+
 .gallery {
     display: flex;
     overflow: scroll;
@@ -97,11 +98,14 @@ body, html {
     border: 2px dotted white;
     border-radius: 10px;
     padding: 10px;
+    justify-content: space-around;
 
 }
+
+/* -------- PHOTOS GALLERY ------------ */
 .picture_cap {
     width: 20%;
-    margin: auto;
+    margin: 10px;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -147,6 +151,7 @@ body, html {
     text-align: center;
 }
 .blog_description h2 {
+    margin-top: 50px;
 
 }
 .blog_description img {
@@ -190,7 +195,11 @@ body, html {
     background-color: rgb(65, 48, 48);
     color: white;
     text-align: center;
-
+}
+.form h3 {
+    width: 90%;
+    margin: auto;
+    text-align: left;
 }
 .form form {
     margin-left: 20px;

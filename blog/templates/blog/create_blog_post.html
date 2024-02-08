@@ -7,7 +7,16 @@
         <h2>Écrire un billet</h2>
 
         <form method="post" enctype="multipart/form-data">
-            {{ blog_form.as_p }}
+            {% comment %} {{ blog_form.as_p }} {% endcomment %}
+            {% for field in blog_form.visible_fields %}
+                <div class="field_form">
+                    {{ field.label_tag }}
+                    {% if field.label == 'Description' %}
+                        <br>
+                    {% endif%}
+                    {{ field }}
+                </div>
+            {% endfor %}
             {{ photo_form.as_p }}
             {% csrf_token %}
             <button type="submit" >Publier</button>

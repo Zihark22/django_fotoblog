@@ -8,7 +8,9 @@
         <img src="{{ blog.photo.image.url }}">
         <p class="caption_blog">{{ blog.photo.caption }}</p>
         <p class="descritption_blog">{{ blog.content }}</p>
-        <button><a href="{% url 'edit_blog' blog.id %}">Modifier le billet</a></button>
+        {% if perms.blog.change_photo %}
+            <button><a href="{% url 'edit_blog' blog.id %}">Modifier le billet</a></button>
+        {% endif %}
     </div>
 
 {% endblock content %}

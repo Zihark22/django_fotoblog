@@ -2,23 +2,34 @@
 
 
 {% block content %}
+    <div class="form">
+        <h2>Modifier le billet</h2>
 
-    <h2>Modifier le billet</h2>
+        <form method="post">
+            {% comment %} {{ edit_form.as_p }} {% endcomment %}
+            {% csrf_token %}
+            {% for field in edit_form.visible_fields %}
+                <div class="field_form">
+                    {{ field.label_tag }}
+                    {% if field.label == 'Description' %}
+                        <br>
+                    {% endif%}
+                    {{ field }}
+                </div>
+            {% endfor %}
+            <button type="submit" >Sauvegarder</button>
+        </form>
 
-    <form method="post">
-        {{ edit_form.as_p }}
-        {% csrf_token %}
-        <button type="submit" >Sauvegarder</button>
-    </form>
+        <hr>
+        {% if perms.blog.delete_blog %}
+            <h3>Supprimer le billet ?</h3>
 
-    <hr>
-
-    <h3>Supprimer le billet ?</h3>
-
-    <form method="post">
-        {{ delete_form }}
-        {% csrf_token %}
-        <button type="submit" >Supprimer</button>
-    </form>
+            <form method="post">
+                {{ delete_form }}
+                {% csrf_token %}
+                <button type="submit" >Supprimer</button>
+            </form>
+        {% endif %}
+    </div>
 
 {% endblock content %}
