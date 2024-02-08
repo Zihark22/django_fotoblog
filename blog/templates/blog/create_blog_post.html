@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
 
     <div class="form">
-        <h2>Télécharger une photo de profil</h2>
-        
+        <h2>Écrire un billet</h2>
+
         <form method="post" enctype="multipart/form-data">
-            {{ form.as_p }}
+            {{ blog_form.as_p }}
+            {{ photo_form.as_p }}
             {% csrf_token %}
-            <button type="submit" >Sauvegarder</button>
+            <button type="submit" >Publier</button>
         </form>
     </div>
-
+    
 {% endblock content %}

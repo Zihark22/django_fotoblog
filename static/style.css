@@ -3,59 +3,64 @@
     --minh: 900px;
   }
 
-body {
+body, html {
     background-color: white;
     color: black;
     margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
-#page {
+.page {
     background-color: lightgrey;
-    width: 80%;
-    min-height: var(--minh);
-    height: auto;
     margin: auto;
     padding: 0;
     display: flex;
     align-items: flex-start;
     border: 2px black double;
     margin-bottom: 10px;
+    width: 80%;
+    height: 1000px;
+    overflow: hidden;
 }
 
-#sideBar {
+.sideBar {
     margin-left: 0;
-    min-height: var(--minh);
+    height: 3000px;
     width: 30%;
     background-color: rgba(11, 55, 61, 0.9);
     color: white;
     padding: 20px;
+    font-size: 18px;
 }
 
-#main {
-    background-color: white;
+.main {
     width: 100%;
-    min-height: var(--minh);
-    padding: 20px;
+    margin-top: -20px;  /* résoudre prblm*/
 }
 
 /* -------- In SideBar ------------ */
 .deconnect {
     border: none;
     background-color: transparent;
-    color: inherit; /* Utilise la couleur de texte héritée */
-    cursor: pointer; /* Change le curseur en pointeur au survol */
-    padding: 0; /* Supprime le rembourrage */
-    font-size: inherit; /* Utilise la taille de police héritée */
-    font-family: inherit; /* Utilise la police héritée */
-    text-decoration: none; /* Ajoute une soulignement comme un lien */
+    color: inherit;
+    cursor: pointer; 
+    padding: 0; 
+    font-size: inherit;
+    font-family: inherit;
+    text-decoration: none;
     color: white;
     display: inline;
+    margin: 10px;
+}
+.deconnect:hover {
+    text-decoration: underline;
+    color: orangered;
 }
 
-
 .profile_pic_contain {
-    width: 150px;
-    height: 150px;
+    width: 75%;
+    height: auto;
     margin: auto;
     border-radius:150px;
     overflow: hidden;
@@ -63,38 +68,161 @@ body {
 }
 .profile_pic_contain img {
     width: 100%;
-    height: auto;
     transform: scale(1.2);
     transition: transform 0.3s ease;
 }
 .profile_pic_contain:hover img {
     transform: scale(1.5);
 }
+.sideBar a {
+    text-decoration: none;
+    color: white;
+    margin: 10px;
+}
 
+.sideBar a:hover {
+    text-decoration: underline;
+    color: orangered;
+}
 
 /* -------- PHOTOS GALLERY ------------ */
 .gallery {
     display: flex;
+    overflow: scroll;
+    width: 90%;
+    height: 300px;
+    margin: auto;
+    flex-wrap: wrap;
+    background-color: rgba(10, 10, 10, 0.3);
+    border: 2px dotted white;
+    border-radius: 10px;
+    padding: 10px;
+
 }
 .picture_cap {
-    width: 400px;
+    width: 20%;
     margin: auto;
     text-align: center;
+    margin-bottom: 20px;
 }
 .picture_cap p {
     margin: auto;
 }
 .picture_cap img {
-    width: 50%;
+    width: 100%;
     height: auto;
     margin: auto;
     text-align: center;
     border-radius: 7px;
 }
 
-/* -------- OTHERS ------------ */
 
-#sideBar a {
+/* -------- BLOG GALLERY ------------ */
+.post {
+    width: 40%;
+    margin: auto;
+    text-align: center;
+}
+.post p {
+    margin: auto;
+}
+.post img {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    text-align: center;
+    border-radius: 7px;
+}
+.post a {
+    text-decoration: none;
+    color: black;
+}
+
+.post a:hover {
+    color: orangered;
+}
+
+/* -------- BLOG DESCRIPTION ------------ */
+.blog_description {
+    text-align: center;
+}
+.blog_description h2 {
+
+}
+.blog_description img {
+    width: 80%;
+    border-radius: 7px;
+}
+.blog_description button {
+    margin-top: 50px;
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 7px;
+}
+.blog_description button a {
+    margin-right: 0;
+    text-align: right;
     text-decoration: none;
     color: white;
+    font-style: none;
+}
+.descritption_blog {
+    text-align: left;
+    margin: auto;
+    margin-top: 40px;
+    width: 90%;
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 10px;
+    min-height: 100px;
+}
+.caption_blog {
+
+}
+
+/* -------- FORMS ------------ */
+.form {
+
+}
+.form h2 {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(65, 48, 48);
+    color: white;
+    text-align: center;
+
+}
+.form form {
+    margin-left: 20px;
+    padding: 20px;
+}
+.form button {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border: 3px solid black;
+    border-radius: 7px;
+    margin-top: 20px;
+    margin-left: -20px;
+}
+.field_form {
+    margin: 20px;
+}
+
+
+.picture_cap_mutiple {
+    margin: 50px;
+}
+
+
+
+/* -------- OTHERS ------------ */
+.errorlist {
+    color: red;
+    list-style: none;
+}
+.home h2 {
+    padding-left: 30px;
+    padding-top: 50px;
+    padding-bottom: 20px;
 }
