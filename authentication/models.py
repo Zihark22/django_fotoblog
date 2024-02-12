@@ -21,3 +21,10 @@ class User(AbstractUser):
         elif self.role == self.SUBSCRIBER:
             group = Group.objects.get(name='subscribers')
             group.user_set.add(self)
+
+    follows = models.ManyToManyField(
+        'self',
+        limit_choices_to={'role': CREATOR},
+        symmetrical=False, # true si il n'y a aucune diff entre 2 acteurs de la relation
+        verbose_name='suit',
+    )

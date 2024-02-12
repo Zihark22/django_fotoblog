@@ -8,6 +8,7 @@
         <img src="{{ blog.photo.image.url }}">
         <p class="caption_blog">{{ blog.photo.caption }}</p>
         <p class="descritption_blog">{{ blog.content }}</p>
+        {% comment %} <p class="descritption_blog">{{ blog.contributors }}</p> {% endcomment %}
         {% if perms.blog.change_photo %}
             <button><a href="{% url 'edit_blog' blog.id %}">Modifier le billet</a></button>
         {% endif %}
