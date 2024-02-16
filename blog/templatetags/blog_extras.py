@@ -35,7 +35,7 @@ DAY = 24 * HOUR
 def get_posted_at_display(time):
     seconds_ago = (timezone.now() - time).total_seconds()
     if seconds_ago <= HOUR:
-        return f'Publié il y a {int(seconds_ago // MINUTE)} minutes.'
+        return f'Publié il y a {int(seconds_ago // MINUTE)} min.'
     elif seconds_ago <= DAY:
-        return f'Publié il y a {int(seconds_ago // HOUR)} heures.'
-    return f'Publié le {time.strftime("%d %b %y à %Hh%M")}'
+        return f'Publié il y a {int(seconds_ago // HOUR)} h.'
+    return f'Publié le {time.strftime("%d/%m/%y à %Hh%M")}'

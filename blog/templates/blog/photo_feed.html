@@ -4,15 +4,11 @@
 {% load blog_extras %}
 
 {% block content %}
-    <div class="home">
-        <h2>Votre flux</h2>
+        <h2>Votre flux photos</h2>
         <div class="gallery">
             {% for instance in page_obj %}
                     {% include 'blog/partials/photo_snippet.html' with photo=instance %}
             {% endfor %}
         </div>
-        <footer>
-            {% include 'blog/partials/pagination.html' %}
-        </footer>
-    </div>
+        {% include 'blog/partials/pagination.html' %}
 {% endblock content %}

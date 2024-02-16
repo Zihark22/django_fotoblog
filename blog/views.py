@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required, permission_required
 from . import forms, models
@@ -19,12 +18,8 @@ def home(request):
         key=lambda instance: instance.date_created,
         reverse=True
     )
-    # context = {
-    #     'blogs_and_photos': blogs_and_photos,
-    # }
 
-
-    paginator = Paginator(blogs_and_photos, 6)
+    paginator = Paginator(blogs_and_photos, 9)
     
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
@@ -42,10 +37,7 @@ def photo_feed(request):
         key=lambda instance: instance.date_created,
         reverse=True
     )
-    # context = {
-    #     'photos': photos,
-    # }
-    paginator = Paginator(photos, 6)
+    paginator = Paginator(photos, 9)
     
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)

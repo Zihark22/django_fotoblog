@@ -5,55 +5,17 @@
 
 {% block content %}
 
-    
-{% comment %} 
-        <h2>Photos</h2>
-
-        <div class="gallery">
-        {% for photo in photos %}
-            <div class="picture_cap">
-                <img src="{{ photo.image.url }}">
-                <p>{{ photo.caption }}</p>
-            </div>
+    <h2>Votre flux</h2>
+    <div class="gallery">
+        {% for instance in page_obj %}
+            {% if instance|model_type == 'Blog' %}
+                {% include 'blog/partials/blog_snippet.html' with blog=instance %}
+            {% elif instance|model_type == 'Photo' %}
+                {% include 'blog/partials/photo_snippet.html' with photo=instance %}
+            {% endif %}
         {% endfor %}
-        </div>
-        
-        <br>
-        <hr>
-
-        <h2>Blog</h2>
-
-        <div class="gallery">
-            {% for blog in blogs_and_photos %}
-                <div class="post">
-                    <a href="{% url 'view_blog' blog.id %}">
-                        <h4>Billet : {{ blog.title }}</h4>
-                        <img src="{{ blog.photo.image.url }}">
-                        {% if blog.word_count > 0 %}
-                            <p> {{ blog.word_count }} words </p>
-                        {% else %}
-                            <p> 0 words </p>
-                        {% endif %}
-                    </a>
-                </div>
-            {% endfor %}
-        </div> {% endcomment %}
-
-    <div class="home">
-        <h2>Votre flux</h2>
-        <div class="gallery">
-            {% for instance in page_obj %}
-                {% if instance|model_type == 'Blog' %}
-                    {% include 'blog/partials/blog_snippet.html' with blog=instance %}
-                {% elif instance|model_type == 'Photo' %}
-                    {% include 'blog/partials/photo_snippet.html' with photo=instance %}
-                {% endif %}
-            {% endfor %}
-        </div>
     </div>
 
-    <footer>
-        {% include 'blog/partials/pagination.html' %}
-    </footer>
+    {% include 'blog/partials/pagination.html' %}
 
 {% endblock content %}

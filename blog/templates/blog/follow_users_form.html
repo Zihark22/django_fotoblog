@@ -3,6 +3,7 @@
 
 {% block content %}
 
+<div class="form">
     <h2>Suivre des utilisateurs</h2>
 
     <form method="post">
@@ -10,5 +11,6 @@
         {% csrf_token %}
         <button type="submit" >Confirmer</button>
     </form>
-    
+</div>
+
 {% endblock content %}
